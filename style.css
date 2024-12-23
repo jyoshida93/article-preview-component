@@ -1,0 +1,260 @@
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+    margin: 0;
+    z-index: 1;
+}
+
+body {
+    /* 3. Add accessible line-height */
+    line-height: 1.5;
+    /* 4. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+    text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+    isolation: isolate;
+}
+
+:root {
+    --very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --desaturated-dark-blue: hsl(214, 17%, 51%);
+    --grayish-blue: hsl(212, 23%, 69%);
+    --light-gray-blue: hsl(210, 46%, 95%);
+}
+
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background-color: var(--light-gray-blue);
+}
+
+.page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    margin: 0 1rem;
+}
+
+.card--padding {
+    padding: 0 1.5rem;
+}
+
+.card__header {
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 1rem 0 0 0;
+    color: var(--very-dark-grayish-blue);
+}
+
+.card__description {
+    font-weight: 500;
+    font-size: 0.8rem;
+    padding: 1.2em 0;
+    color: var(--grayish-blue);
+}
+
+.card__img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card__img-container {
+    margin-bottom: 0.8em;
+    border-radius: 10px;
+}
+
+.card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 1.8em 1em 1.8em;
+}
+
+.card__footer--dark {
+    background-color: var(--very-dark-grayish-blue);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.post-info {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+
+.post-info--hidden {
+    display: none;
+}
+
+.post-info__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+
+.post-info__author {
+    font-size: 0.8rem;
+    color: var(--very-dark-grayish-blue);
+}
+
+.post-info__date {
+    font-size: 0.8rem;
+    color: var(--grayish-blue);
+}
+
+.post-info__share {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    border: none;
+}
+
+.share-button--icon {
+    margin: 0 auto;
+}
+
+.icon-bar {
+    display: flex;
+    background-color: var(--very-dark-grayish-blue);
+    gap: 1em;
+}
+
+.icon-bar--text {
+    letter-spacing: 3px;
+    color: var(--desaturated-dark-blue);
+    font-size: 0.8rem;
+}
+
+.icon-bar--icons {
+    display: flex;
+    gap: 0.75em;
+}
+
+.icon-bar--hidden {
+    display: none;
+}
+
+@media (min-width: 40rem) {
+
+    .card {
+        display: flex;
+        max-width: 600px;
+        align-self: center;
+        width: 35rem;
+        margin: 0 auto;
+    }
+
+    .card__img {
+        object-fit: cover;
+        border-top-left-radius: 10px;
+        border-top-right-radius: unset;
+        border-bottom-left-radius: 10px;
+    }
+
+    .card__text-container {
+        padding: 1.8rem;
+        flex-basis: 60%;
+    }
+
+    .card__footer {
+        position: relative;
+    }
+
+    .card__img-container {
+        flex-basis: 40%;
+        margin-bottom: 0;
+    }
+
+    .card__text-container {
+        padding: 1rem;
+    }
+
+    .icon-bar {
+        position: absolute;
+        left: 8rem;
+        bottom: 4.3rem;
+        z-index: 9999;
+        width: 13rem;
+        padding: 1em;
+        justify-content: space-evenly;
+        gap: unset;
+        border-radius: 5px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        ;
+    }
+
+    .icon-bar::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 70%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 1.1rem;
+        height: 1.1rem;
+        background-color: var(--very-dark-grayish-blue);
+    }
+}
